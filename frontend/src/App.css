@@ -648,3 +648,6 @@ html, body, #root {
 }
 .issued-json-full::-webkit-scrollbar { width: 4px; }
 .issued-json-full::-webkit-scrollbar-thumb { background: var(--border2); }
+
+.crt-btn--rand { border-color: #2a1a00; color: #c88000; background: #0d0800; }
+.crt-btn--rand:hover { border-color: #f59e0b; color: #f59e0b; background: #1a1000; box-shadow: 0 0 8px rgba(245,158,11,0.2); }

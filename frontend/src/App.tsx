@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import type { PermitTemplate, SignedDocument, FormState, DimKey, NavItem, Option, Risk } from './types'
 import { checkHealth, fetchTemplate, issuePermit, verifyPermit, clientVerifySignature } from './api'
-import { computeRiskScore, riskColor, riskLabel, makeDefaultForm, RISK_COLOR } from './risk'
+import { computeRiskScore, riskColor, riskLabel, makeDefaultForm, makeRandomForm, RISK_COLOR } from './risk'
 import './App.css'
 
 const NAV_ITEMS: NavItem[] = [
@@ -747,6 +747,18 @@ export default function App() {
             >
               ↺ CLEAR ALL
             </button>
+            {template && (
+              <button
+                className="crt-btn crt-btn--full crt-btn--rand"
+                onClick={() => {
+                  const f = makeRandomForm(template)
+                  setForm(f)
+                  notify(`⚄ Demo permit generated — ${f.permitId}`, 'ok')
+                }}
+              >
+                ⚄ RANDOMIZE (DEMO)
+              </button>
+            )}
           </div>
 
         </aside>
